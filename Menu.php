@@ -1,6 +1,8 @@
 <?php
 namespace plance\widget;
 
+use yii\helpers\Html;
+
 class Menu extends \yii\base\Widget
 {
 	private static $items_ar = [];
@@ -9,14 +11,13 @@ class Menu extends \yii\base\Widget
     {
 		if(sizeof(self::$items_ar) > 0)
 		{
-			return '<p>'.join(' ', self::$items_ar).'</p>';
+			return Html::tag('p', join(' ', self::$items_ar));
 		}
     }
 	
 	/**
-	 * Устанавливат меню модуля или пункты меню
-	 *
-	 * @param array $items массив пунктов меню
+	 * Set menu items
+	 * @param array $items menu items
 	 */
 	public static function set($items)
 	{
